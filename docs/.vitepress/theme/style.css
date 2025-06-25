@@ -1,0 +1,21 @@
+/* 全局中文字体设置 */
+:root {
+    /* 中文正文（优先使用系统自带字体） */
+    --vp-font-family-base: "PingFang SC", "Microsoft YaHei", sans-serif;
+
+    /* 代码块（等宽字体） */
+    --vp-font-family-mono: "JetBrains Mono", "Courier New", monospace;
+
+    /* 标题（使用阿里巴巴普惠体，如果没有则回退到系统默认） */
+    --vp-font-family-title: "Alibaba PuHuiTi", "Helvetica Neue", sans-serif;
+}
+
+/* 应用标题字体到所有标题（h1-h6） */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4,
+.vp-doc h5,
+.vp-doc h6 {
+    font-family: var(--vp-font-family-title);
+}
