@@ -2,10 +2,6 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/',
-  build: {
-    outDir: 'docs/.vitepress/dist',
-  },
   title: "solutide",
   description: "test",
   themeConfig: {
