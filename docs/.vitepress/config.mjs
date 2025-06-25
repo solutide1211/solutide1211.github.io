@@ -4,10 +4,8 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "solutide",
   description: "test",
-  head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }]
-  ],
   themeConfig: {
+    logo: {src: '../public/favicon.ico',width: 64,height: 64},
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Java', 
