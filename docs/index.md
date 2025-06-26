@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: Java
-      link: /Java
+      link: /java/BaseJava
     
 
 features:
