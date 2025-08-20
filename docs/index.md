@@ -10,5 +10,5 @@ blog:
   pageSize: 5
   inspiringTimeout: 5000
   author: solutide
-  logo: ../public/logo.jpg
+  logo: /logo.jpg
 ---
