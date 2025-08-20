@@ -1,6 +1,3 @@
-import DefaultTheme from "vitepress/theme";
-import "./style.css"; // 加载自定义样式
-
-export default {
-    ...DefaultTheme
-}
+import BlogTheme from "@sugarat/theme";
+import './style.css'
+export default BlogTheme;

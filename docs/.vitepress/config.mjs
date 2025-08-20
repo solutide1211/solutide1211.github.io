@@ -1,7 +1,23 @@
 import { defineConfig } from 'vitepress'
+import {getThemeConfig} from '@sugarat/theme/node'
+
+const blogTheme = getThemeConfig({
+  mermaid: true,
+  oml2d: {
+    mobileDisplay: true,
+    models: [
+      {
+        path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json'
+      }
+    ]
+  }
+})
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+
+  extends: blogTheme,
+
   markdown: {
     theme: {
       dark: 'dracula-soft',
@@ -9,125 +25,61 @@ export default defineConfig({
     }
   },
   title: "solutide",
-  description: "test",
+  description: "一个专注于技术学习的博客",
   themeConfig: {
-    logo: {src: '../public/favicon.ico',width: 64,height: 64},
+    
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Java', 
-        items:  [
-          {text: 'Java基础',link: '/java/BaseJava'},
-          {text: '数据结构',link: '/java/java-data-structure'},
-          {text: 'SpringBoot',link: '/java/SpringBoot'}
-        ]
-      },
+      { text: '首页', link: '/' },
       { 
-        text: 'database',
+        text: '归档', 
         items: [
-          {text: 'mysql',link: '/DataBases/MySQL'},
-          {text: 'Redis',link: '/DataBases/Redis'}
-        ]
-       },
-      { 
-        text: '中间件',
-        items: [
-          {text: 'RabbitMQ',link: '/MiddleWare/RabbitMq'},
-        ]
-      }
-    ],
-
-    sidebar: [
-  {
-    text: 'Java',
-    collapsed: false, // 默认展开
-    items: [
-      { text: '源码阅读',
-        collapsed: true, // 子目录是否折叠
-        items:[
-          {text: 'LinkedList',link: '/java/SourceCodeLearn/LinkedList.md'}
+          {text: 'ThreadLocal基础使用',link: '/archives/ThreadLocal基础使用'},
+          {text: 'ThreadLocal内存泄漏，如何解决', link: '/archives/ThreadLocal内存泄漏,如何解决'}
         ]  
       },
       { 
-        text: '数据结构', 
-        collapsed: true, // 子目录是否折叠
+        text: '标签',
         items: [
-          { text: '概述', link: '/java/java-data-structure/' }, // index.md
-          { text: '链表', link: '/java/java-data-structure/LinkedList' },
-          { text: '动态数组', link: '/java/java-data-structure/ArrayList' },
-          { text: '哈希表', link: '/java/java-data-structure/HashMap' },
-          { text: '树结构', link: '/java/java-data-structure/Tree' },
-          { text: '队列', link: '/java/java-data-structure/queue' },
+          {
+            text: 'Docker',
+            items: [
+              {text: 'Docker概述',link: '/tags/Docker概述'},
+              {text: '镜像管理', link: '/tags/镜像管理'}
+            ]
+          },
+          {
+            text: 'Linux',
+            items: [
+              {text: 'Linux概述', link: '/tags/Linux概述'},
+              {text: '命令速查', link: '/tags/命令速查'}
+            ]
+          }
         ]
       },
-      { text: 'SpringBoot', link: '/java/SpringBoot' },
-      {
-        text: 'JavaIO',
+      { 
+        text: '技术栈', 
         collapsed: true,
         items: [
-          {text: 'IO概述', link: '/java/JavaIO'},
-          {text: 'javaIO-装饰器模式', link: 'java/javaIO-装饰器模式'}
+          { 
+            text: 'Java', 
+            collapsed: true,
+            items: [
+              {text: 'javaIO', link: '/posts/JavaIO'},
+              {text: '网络编程', link: '/posts/网络编程.md'},
+              {text: 'IO模型', link: '/posts/IOModel.md'},
+              {text: 'javaIO-装饰器模式', link: '/posts/javaIO-装饰器模式.md'},
+              {text: '多线程Thread',link: '/posts/线程Thread.md'}
+            ]
+          },
+          { text: 'SpringBoot', link: '/posts/SpringBoot' },
+          { text: 'MySQL', link: '/posts/MySQL' },
+          { text: 'Redis', link: '/posts/Redis' },
+          { text: 'RabbitMQ', link: '/posts/RabbitMq' }
         ]
-      },
-      {text: 'IO模型',link: '/java/IOModel'},
-      {
-        text: 'Netty',
-        collapsed: true, // 子目录是否折叠
-        items: [
-          {text: 'Netty基础',link: '/java/Netty/Netty基础'},
-        ]
-      },
-      {text: '线程',link: '/java/线程Thread'}
-    ]
-  },
-  {
-    text: '设计模式',
-    collapsed: false, // 默认展开
-    items: [
-      {text: '工厂模式', link:'/DesignPatterns/CreationalPatterns/FactoryPattern'},
-      {text: '抽象工厂模式', link:'/DesignPatterns/CreationalPatterns/AbstractFactoryPattern'},
-      {text: '单例模式', link:'/DesignPatterns/CreationalPatterns/SingletonPattern'},
-      {text: '建造者模式', link:'/DesignPatterns/CreationalPatterns/BuilderPattern'},
-      {text: '原型模式', link:'/DesignPatterns/CreationalPatterns/PrototypePattern'},
-      {text: '适配器模式', link:'/DesignPatterns/StructuralPatterns/AdapterPattern'},
-      {text: '组合模式', link:'/DesignPatterns/StructuralPatterns/CompositePattern'},
-      {text: '装饰器模式', link:'/DesignPatterns/StructuralPatterns/DecoratorPattern'},
-      {text: '代理模式', link:'/DesignPatterns/StructuralPatterns/ProxyPattern'},
-      {text: '责任链模式', link:'/DesignPatterns/BehavioralPatterns/ChainOfResponsibilityPattern'},
-      {text: '观察者模式', link:'/DesignPatterns/BehavioralPatterns/ObserverPattern'},
-      {text: '策略模式', link:'/DesignPatterns/BehavioralPatterns/StrategyPattern'},
-    ]
-  },
-  {
-  text: '其他',
-  collapsed: false, // 默认展开
-  items: [
-    {
-      text: 'Linux',
-      collapsed: false, // 二级目录默认展开
-      items: [
-        { text: 'Linux概述', link: 'Other/Linux/Linux概述' },
-        { text: '命令速查', link: 'Other/Linux/命令速查' },
-      ]
-    },
-    {
-      text: 'Docker',
-      collapsed: false, // 二级目录默认展开
-      items: [
-        { text: 'Docker概述', link: 'Other/Docker/Docker概述' },
-        { text: '镜像管理', link: 'Other/Docker/镜像管理' },
-      ]
-    },
-    {
-      text: '随记',
-      collapsed: true,
-      items: [
-        {text: 'ThreadLocal基础使用', link: 'Other/随记/ThreadLocal基础使用'},
-      ]
-    }
-  ]
-}
-],
-
+      }
+    ],
+    // 博客专属：首页配置
+    home: true,
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     ]

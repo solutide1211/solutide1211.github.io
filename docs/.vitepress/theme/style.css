@@ -1,21 +1,109 @@
-/* 全局中文字体设置 */
+/* .vitepress/style.css */
 :root {
-    /* 中文正文（优先使用系统自带字体） */
-    --vp-font-family-base: "PingFang SC", "Microsoft YaHei", sans-serif;
+    /* 代码块整体样式 */
+    --vp-code-block-bg: #0a0c17;
+    /* 深蓝黑背景 */
+    --vp-code-block-border: #1e2a4f;
+    /* 科技蓝边框 */
+    --vp-code-block-radius: 12px;
+    --vp-code-block-shadow: 0 8px 32px rgba(10, 20, 40, 0.4);
 
-    /* 代码块（等宽字体） */
-    --vp-font-family-mono: "JetBrains Mono", "Courier New", monospace;
+    /* 代码文本 */
+    --vp-code-font-size: 14px;
+    --vp-code-line-height: 1.7;
+    --vp-code-color: #0b2c19;
+    /* 灰白色代码主体 */
+    --vp-code-font-family: 'JetBrains Mono', 'Fira Code', monospace;
 
-    /* 标题（使用阿里巴巴普惠体，如果没有则回退到系统默认） */
-    --vp-font-family-title: "Alibaba PuHuiTi", "Helvetica Neue", sans-serif;
+    /* 行内代码 */
+    --vp-code-bg: rgba(30, 50, 90, 0.3);
+    /* 半透明蓝 */
+    --vp-code-link-color: #4da6ff;
+    --vp-code-link-hover-color: #6ec1ff;
+
+    /* 高亮行 */
+    --vp-code-line-highlight-color: rgba(25, 100, 200, 0.15);
+
+    /* 复制按钮 */
+    --vp-code-copy-code-bg: rgba(15, 25, 45, 0.8);
+    --vp-code-copy-code-hover-bg: rgba(30, 60, 120, 0.6);
+    --vp-code-copy-code-active-text: #80d4ff;
+    --vp-code-copy-copied-text-content: '已复制';
+
+    /* 语言标签页（Tab） */
+    --vp-code-tab-bg: transparent;
+    --vp-code-tab-text-color: #6a87a8;
+    --vp-code-tab-hover-text-color: #a3b4cc;
+    --vp-code-tab-active-text-color: #80d4ff;
+    --vp-code-tab-active-bar-color: #4da6ff;
+    --vp-code-tab-divider: none;
+
+    /* 自定义块背景（tip/warning等） */
+    --vp-custom-block-tip-bg: rgba(77, 166, 255, 0.1);
+    --vp-custom-block-warning-bg: rgba(255, 165, 0, 0.1);
+    --vp-custom-block-danger-bg: rgba(255, 80, 100, 0.1);
 }
 
-/* 应用标题字体到所有标题（h1-h6） */
-.vp-doc h1,
-.vp-doc h2,
-.vp-doc h3,
-.vp-doc h4,
-.vp-doc h5,
-.vp-doc h6 {
-    font-family: var(--vp-font-family-title);
+/* 深色模式增强（与默认 dark 一致，但已自定义） */
+.dark {
+    /* 可在此处添加额外深色覆盖 */
+}
+
+/* 全局代码块增强样式 */
+pre {
+    background: var(--vp-code-block-bg) !important;
+    border: 1px solid var(--vp-code-block-border);
+    border-radius: var(--vp-code-block-radius);
+    box-shadow: var(--vp-code-block-shadow);
+    overflow: hidden;
+    position: relative;
+    padding: 1.2rem;
+    margin: 1.5em 0;
+    transition: box-shadow 0.3s ease;
+}
+
+pre:hover {
+    box-shadow: 0 12px 40px rgba(10, 20, 40, 0.6), 0 0 20px rgba(77, 166, 255, 0.2);
+}
+
+/* 代码字体优化 */
+code {
+    font-family: var(--vp-code-font-family) !important;
+    font-size: var(--vp-code-font-size);
+    line-height: var(--vp-code-line-height);
+}
+
+/* 行内代码 */
+p code {
+    background: var(--vp-code-bg);
+    color: var(--vp-code-color);
+    padding: 0.2em 0.4em;
+    border-radius: 6px;
+    border: 1px solid rgba(78, 127, 92, 0.1);
+}
+
+/* 复制按钮悬停发光效果 */
+.vp-code-copy {
+    transition: all 0.2s ease;
+}
+
+.vp-code-copy:hover {
+    background: var(--vp-code-copy-code-hover-bg) !important;
+    box-shadow: 0 0 10px rgba(77, 166, 255, 0.3);
+}
+
+.VPHome {
+
+    &::before {
+        background-image: url(../../public/bakc_img.jpg);
+        background-size: cover;
+    }
+
+    background: radial-gradient(ellipse,
+        rgba(var(--bg-gradient-home), 1) 0%,
+        rgba(var(--bg-gradient-home), 0) 150%);
+}
+
+.blog-item .pin.pin::before {
+    background-image: linear-gradient(red, red);
 }
