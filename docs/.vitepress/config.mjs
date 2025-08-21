@@ -53,6 +53,15 @@ export default defineConfig({
               {text: 'Linux概述', link: '/tags/Linux概述'},
               {text: '命令速查', link: '/tags/命令速查'}
             ]
+          },
+          {
+            text: 'flutter',
+            items: [
+              {text: 'StatelessWidget与基础组件', link: '/tags/StatelessWidget与基础组件'},
+              {text: 'StatefulWidget与基础组件', link: '/tags/StatefulWidget与基础组件'},
+              {text: 'Swiper实现轮播图', link: '/tags/Swiper实现轮播图'},
+              {text: 'Flutter布局开发', link: '/tags/Flutter布局开发'},
+            ]
           }
         ]
       },
